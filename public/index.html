@@ -1,17 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+</head>
+
+<body>
+  <noscript>
+    <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
+      Please enable it to continue.</strong>
+  </noscript>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+
+  <script>
+
+    // var detectOrient = function () {
+    //   var width = document.documentElement.clientWidth,
+    //     height = document.documentElement.clientHeight,
+    //     wrapper = document.getElementById("app"),
+    //     style = "";
+    //     console.log(width , height)
+    //   if (width >= height) { // 竖屏
+    //     style += "width:100%";
+    //     style += "height:100%;";
+    //     style += "-webkit-transform: rotate(0); transform: rotate(0);";
+    //     style += "-webkit-transform-origin: 0 0;";
+    //     style += "transform-origin: 0 0;";
+    //   } else { // 横屏
+    //     style += "width:" + height + "px;";// 注意旋转后的宽高切换
+    //     style += "height:" + width + "px;";
+    //     style += "-webkit-transform: rotate(90deg); transform: rotate(90deg) !important;";
+    //     // 注意旋转中点的处理
+    //     style += "-webkit-transform-origin: " + width / 2 + "px " + width / 2 + "px;";
+    //     style += "transform-origin: " + width / 2 + "px " + width / 2 + "px;";
+    //   }
+    //   console.log(style)
+    //   wrapper.style.cssText = style;
+    // }
+    // window.onresize = detectOrient;
+    // detectOrient();
+  </script>
+</body>
+
 </html>
