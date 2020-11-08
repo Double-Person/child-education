@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="bg-img-warp home">
     <div class="jc-between align-center top">
       <div class="left">
         <img src="~@/assets/img/index/logo.png" alt="" srcset="" />
@@ -17,6 +17,7 @@
           class="fl top-content-item"
           v-for="(item, index) in contentTop"
           :key="index"
+           @click="toOtherPage(item.url)"
         >
           <img class="icon" :src="item.iconImg" alt="" srcset="" />
           <img class="title" :src="item.titleImg" alt="" srcset="" />
@@ -28,6 +29,7 @@
           class="fl bottom-content-item"
           v-for="(item, index) in contentBottom"
           :key="index"
+           @click="toOtherPage(item.path)"
         >
           <img class="icon" :src="item.iconImg" alt="" srcset="" />
           <img class="title" :src="item.titleImg" alt="" srcset="" />
@@ -49,14 +51,17 @@ export default {
         {
           titleImg: require("@/assets/img/index/shopTitle.png"),
           iconImg: require("@/assets/img/index/shop.png"),
+          url: ''
         },
         {
           titleImg: require("@/assets/img/index/giftBoxText.png"),
           iconImg: require("@/assets/img/index/giftBox.png"),
+          url: ''
         },
         {
           titleImg: require("@/assets/img/index/layerText.png"),
           iconImg: require("@/assets/img/index/layer.png"),
+          url: ''
         },
       ],
 
@@ -64,14 +69,17 @@ export default {
         {
           iconImg: require("@/assets/img/index/1.png"),
           titleImg: require("@/assets/img/index/animationTitle.png"),
+          url: ''
         },
         {
           iconImg: require("@/assets/img/index/3.png"),
           titleImg: require("@/assets/img/index/learningGarden.png"),
+          url: '/child-list'
         },
         {
           iconImg: require("@/assets/img/index/5.png"),
           titleImg: require("@/assets/img/index/videoTitle.png"),
+          url: ''
         },
       ],
 
@@ -79,14 +87,24 @@ export default {
         {
           iconImg: require("@/assets/img/index/2.png"),
           titleImg: require("@/assets/img/index/childToys.png"),
+          url: ''
         },
         {
           iconImg: require("@/assets/img/index/4.png"),
           titleImg: require("@/assets/img/index/scienceEducation.png"),
+          url: ''
         },
       ],
     };
   },
+  methods: {
+    toOtherPage(path) {
+      if(!path) {
+        return false;
+      }
+      this.$router.push({path})
+    }
+  }
 };
 </script>
 
@@ -94,9 +112,8 @@ export default {
 .home {
   width: 100%;
   height: 100vh;
-  background: url("~@/assets/img/index/bg.png");
-  background-size: cover;
-  background-repeat: no-repeat;
+  background: url("~@/assets/img/index/bg.png") no-repeat;
+  
   .top {
     padding: 20px 50px 0 50px;
     .left {
