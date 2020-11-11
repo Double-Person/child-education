@@ -14,19 +14,13 @@
     </div>
     <!-- 右侧商店 -->
     <div class="right">
-      <div
-        class="right-item"
-        v-for="(item, index) in topRightList"
-        :key="index"
-      >
-        <img class="icon-img" :src="item.iconImg" alt="" srcset="" />
-        <img class="title-img" :src="item.titleImg" alt="" srcset="" />
-      </div>
+      <top-header-right />
     </div>
   </div>
 </template>
 
 <script>
+import TopHeaderRight from "@/components/TopHeaderRight"
 export default {
   props: {
     title: {
@@ -34,27 +28,10 @@ export default {
       required: true,
     },
   },
-  data() {
-    return {
-      topRightList: [
-        {
-          titleImg: require("@/assets/img/index/shopTitle.png"),
-          iconImg: require("@/assets/img/index/shop.png"),
-          url: "",
-        },
-        {
-          titleImg: require("@/assets/img/index/giftBoxText.png"),
-          iconImg: require("@/assets/img/index/giftBox.png"),
-          url: "",
-        },
-        {
-          titleImg: require("@/assets/img/index/layerText.png"),
-          iconImg: require("@/assets/img/index/layer.png"),
-          url: "",
-        },
-      ],
-    };
+  components: {
+    TopHeaderRight
   },
+  
 };
 </script>
 
@@ -88,7 +65,7 @@ export default {
   display: flex;
 
   .left {
-    flex: 2;
+    flex: 4;
     text-align: center;
 
     .snail {
@@ -106,22 +83,7 @@ export default {
   }
   .right {
     flex: 1;
-    display: flex;
-    justify-content: space-around;
-    // margin-top: 10px;
-
-    .right-item{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      .icon-img{
-        width: 60px;
-      }
-      .title-img{
-        width: 40px;
-        margin: 10px 0 0 10px ;
-      }
-    }
+   
   }
 }
 </style>

@@ -29,33 +29,33 @@
     </div>
     <!-- 右侧 -->
     <div class="left-video-list">
-      <!--  -->
+      <!-- 顶部信息 -->
       <top-header :title="activeName" />
-    
-        <div class="jc-between fl-warp video-list">
-            <div class="video-item" v-for="(item, index) in videoList" :key="index">
-                <video-play-list :url="item.url" :title="activeName"/>
-            </div>
 
-
-            <img class="img-footer" src="~@/assets/img/childList/footerMask.png" alt="" srcset="">
-            
+      <div class="jc-between fl-warp video-list">
+        <div class="video-item" v-for="(item, index) in videoList" :key="index">
+          <video-play-list :url="item.url" :title="activeName" />
         </div>
-    
+        <img
+          class="img-footer"
+          src="~@/assets/img/childList/footerMask.png"
+          alt=""
+          srcset=""
+        />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import TopHeader from "./TopHeader";
-import VideoPlayList from "@/components/VideoPlayList.vue"
-
+import VideoPlayList from "@/components/VideoPlayList.vue";
 
 export default {
   name: "ChildList",
   components: {
-      TopHeader,
-      VideoPlayList
+    TopHeader,
+    VideoPlayList,
   },
   data() {
     return {
@@ -73,23 +73,21 @@ export default {
       ],
 
       videoList: [
-          { url: 'https://www.w3school.com.cn/i/movie.ogg', id: 0 },
-          { url: 'https://www.w3school.com.cn/i/movie.ogg', id: 1 },
-          { url: 'https://www.w3school.com.cn/i/movie.ogg', id: 2 },
-          { url: 'https://www.w3school.com.cn/i/movie.ogg', id: 3 },
-          { url: 'https://www.w3school.com.cn/i/movie.ogg', id: 4 },
-          { url: 'https://www.w3school.com.cn/i/movie.ogg', id: 5 },
-          { url: 'https://www.w3school.com.cn/i/movie.ogg', id: 6 },
-          { url: 'https://www.w3school.com.cn/i/movie.ogg', id: 7 },
-          { url: 'https://www.w3school.com.cn/i/movie.ogg', id: 8 },
-          { url: 'https://www.w3school.com.cn/i/movie.ogg', id: 8 },
-          { url: 'https://www.w3school.com.cn/i/movie.ogg', id: 8 },
-          { url: 'https://www.w3school.com.cn/i/movie.ogg', id: 8 },
-          { url: 'https://www.w3school.com.cn/i/movie.ogg', id: 8 },
-          { url: 'https://www.w3school.com.cn/i/movie.ogg', id: 8 },
-        
-      ]
-    
+        { url: "https://www.w3school.com.cn/i/movie.ogg", id: 0 },
+        { url: "https://www.w3school.com.cn/i/movie.ogg", id: 1 },
+        { url: "https://www.w3school.com.cn/i/movie.ogg", id: 2 },
+        { url: "https://www.w3school.com.cn/i/movie.ogg", id: 3 },
+        { url: "https://www.w3school.com.cn/i/movie.ogg", id: 4 },
+        { url: "https://www.w3school.com.cn/i/movie.ogg", id: 5 },
+        { url: "https://www.w3school.com.cn/i/movie.ogg", id: 6 },
+        { url: "https://www.w3school.com.cn/i/movie.ogg", id: 7 },
+        { url: "https://www.w3school.com.cn/i/movie.ogg", id: 8 },
+        { url: "https://www.w3school.com.cn/i/movie.ogg", id: 8 },
+        { url: "https://www.w3school.com.cn/i/movie.ogg", id: 8 },
+        { url: "https://www.w3school.com.cn/i/movie.ogg", id: 8 },
+        { url: "https://www.w3school.com.cn/i/movie.ogg", id: 8 },
+        { url: "https://www.w3school.com.cn/i/movie.ogg", id: 8 },
+      ],
     };
   },
 
@@ -174,28 +172,26 @@ export default {
   .left-video-list {
     width: 76%;
     position: relative;
-     
 
-    .video-list{
-        overflow-y: auto;
-        
-        height: calc( 100% - 130px );
-       &:after{
-            width: 30%;
-            content: '';
-        }
-        .video-item{
-            width: 30%;
-            margin-bottom: 5.3%;
-        }
+    .video-list {
+      overflow-y: auto;
+
+      height: calc(100% - 130px);
+      &:after {
+        width: 30%;
+        content: "";
+      }
+      .video-item {
+        width: 30%;
+        margin-bottom: 5.3%;
+      }
     }
 
-
-    .img-footer{
-        width: 100%;
-        position: absolute;
-        bottom: 6px;
-        z-index: 2;
+    .img-footer {
+      width: 100%;
+      position: absolute;
+      bottom: 6px;
+      z-index: 2;
     }
   }
 }

@@ -1,20 +1,22 @@
 <template>
   <div class="bg-img-warp video-play">
-    <img
-      class="btn-img play-btn"
-      src="~@/assets/img/play/play.png"
-      alt=""
-      srcset=""
-    />
+    <!-- 播放暂停按钮 -->
+    <img class="btn-img play-btn" :src="toogleStatus == 'play' ? imgBtn.pause :imgBtn.play" alt="" srcset="" @click="toogleBtn"/>
+    <!-- 视屏 -->
     <div class="custom-warp">
-      <warp-video />
+      <warp-video 
+      url="https://www.w3school.com.cn/i/movie.ogg"
+      :toogleStatus = "toogleStatus"
+       @ended="ended" />
     </div>
+    <!-- 上一个视屏 -->
     <img
       class="btn-img left-btn"
       src="~@/assets/img/play/left.png"
       alt=""
       srcset=""
     />
+    <!-- 下一个视屏 -->
     <img
       class="btn-img right-btn"
       src="~@/assets/img/play/right.png"
@@ -32,11 +34,30 @@ export default {
     WarpVideo,
   },
   data() {
-    return {};
+    return {
+      imgBtn: {
+        play: require("@/assets/img/play/play.png"),
+        pause: require("@/assets/img/play/suspended.png"),
+      },
+      toogleStatus: 'play'
+    };
   },
   created() {
     let { url } = this.$route.query.url;
   },
+
+  methods: {
+    toogleBtn() {
+     
+      this.toogleStatus = this.toogleStatus == 'pause' ? 'play' : 'pause'
+    },
+    ended() {
+      console.log('--播放结束--')
+      this.toogleStatus = 'play'
+      this.$forceUpdate()
+    },
+
+  }
 };
 </script>
 
@@ -45,7 +66,7 @@ export default {
   width: 100%;
   height: 100vh;
   background: url("~@/assets/img/play/beijing.png") no-repeat;
-  line-height: 100vh;
+  // line-height: 100vh;
   position: relative;
 
   .btn-img {
@@ -70,8 +91,8 @@ export default {
   @media screen and (max-width: 800px) {
     .custom-warp {
       width: 65%;
+      height: 400px;
       margin: 0 auto;
-      position: relative;
     }
   }
 
@@ -79,7 +100,6 @@ export default {
     .custom-warp {
       width: 65%;
       margin: 0 auto;
-      position: relative;
     }
   }
 }

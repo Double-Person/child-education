@@ -5,6 +5,10 @@ import './assets/lib/rem'
 import router from './router'
 import store from './store'
 
+import "./importantLib.js"
+
+
+
 Vue.config.productionTip = false
 
 new Vue({

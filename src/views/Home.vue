@@ -5,12 +5,15 @@
         <img src="~@/assets/img/index/logo.png" alt="" srcset="" />
       </div>
       <div class="jc-between right">
-        <div class="right-item" v-for="(item, index) in topList" :key="index">
+        <!-- <div class="right-item" v-for="(item, index) in topList" :key="index" @click="codingTips">
           <img class="icon" :src="item.iconImg" alt="" srcset="" />
           <img class="title" :src="item.titleImg" alt="" srcset="" />
-        </div>
+        </div> -->
+<top-header-right />
+
       </div>
     </div>
+
     <div class="content">
       <div class="jc-center top-content">
         <div
@@ -41,29 +44,31 @@
 
 <script>
 // @ is an alias to /src
-
+import TopHeaderRight from "@/components/TopHeaderRight";
 export default {
   name: "Home",
-  components: {},
+  components: {
+    TopHeaderRight
+  },
   data() {
     return {
-      topList: [
-        {
-          titleImg: require("@/assets/img/index/shopTitle.png"),
-          iconImg: require("@/assets/img/index/shop.png"),
-          url: ''
-        },
-        {
-          titleImg: require("@/assets/img/index/giftBoxText.png"),
-          iconImg: require("@/assets/img/index/giftBox.png"),
-          url: ''
-        },
-        {
-          titleImg: require("@/assets/img/index/layerText.png"),
-          iconImg: require("@/assets/img/index/layer.png"),
-          url: ''
-        },
-      ],
+      // topList: [
+      //   {
+      //     titleImg: require("@/assets/img/index/shopTitle.png"),
+      //     iconImg: require("@/assets/img/index/shop.png"),
+      //     url: ''
+      //   },
+      //   {
+      //     titleImg: require("@/assets/img/index/giftBoxText.png"),
+      //     iconImg: require("@/assets/img/index/giftBox.png"),
+      //     url: ''
+      //   },
+      //   {
+      //     titleImg: require("@/assets/img/index/layerText.png"),
+      //     iconImg: require("@/assets/img/index/layer.png"),
+      //     url: ''
+      //   },
+      // ],
 
       contentTop: [
         {
@@ -103,6 +108,15 @@ export default {
         return false;
       }
       this.$router.push({path})
+    },
+    // 顶部商城
+    codingTips() {
+      this.$message.closeAll();
+       this.$message({
+         showClose: true,
+          message: '该功能暂未开放',
+          type: 'error'
+      });
     }
   }
 };
@@ -117,28 +131,31 @@ export default {
   .top {
     padding: 20px 50px 0 50px;
     .left {
-      width: 300px;
+      flex: 6;
+      
       img {
-        width: 100%;
+        width: 300px;
       }
     }
     .right {
-      .right-item {
-        text-align: center;
-        margin-left: 30px;
-        img {
-          display: block;
-          margin: 0 auto;
-        }
-        .icon {
-          width: 100px;
-          height: 100px;
-        }
-        .title {
-          width: 50px;
-          margin-top: 20px;
-        }
-      }
+      flex: 1;
+  
+      // .right-item {
+      //   text-align: center;
+      //   margin-left: 30px;
+      //   img {
+      //     display: block;
+      //     margin: 0 auto;
+      //   }
+      //   .icon {
+      //     width: 100px;
+      //     height: 100px;
+      //   }
+      //   .title {
+      //     width: 50px;
+      //     margin-top: 20px;
+      //   }
+      // }
     }
   }
 

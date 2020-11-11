@@ -1,101 +1,96 @@
 <template>
   <div class="custom-warp-div">
-    <img class="custom-video-warp" src="~@/assets/img/play/video-warp.png" />
+    <!-- 边框图片 -->
+    <img
+      class="custom-video-warp"
+      src="~@/assets/img/play/video-warp.png"
+      @click="plays"
+    />
     <div class="video-div">
-      <video
-        class="video"
-        controls
-        src="https://www.w3school.com.cn/i/movie.ogg"
-      ></video>
+      <div id="dplayer"></div>
     </div>
   </div>
 </template>
 
 <script>
+import DPlayer from "dplayer";
 export default {
+  props: {
+    toogleStatus: {
+      type: String,
+      default: "pause",
+    },
+    url: {
+      type: String,
+      required: true
+    }
+  },
   data() {
-    return {};
+    return {
+      status: "",
+      dp: null,
+      urlData: 'https://www.w3school.com.cn/i/movie.ogg'
+    };
+  },
+  watch: {
+    toogleStatus(val) {
+      if(this.url == '') {
+        alert('视屏加载错误')
+        return false;
+      }
+      this.plays(val)
+    }
+    
   },
   created() {
     let { url } = this.$route.query.url;
+  },
+  mounted() {
+    this.dp = new DPlayer({
+      container: document.getElementById("dplayer"),
+      video: {
+        url: this.url,
+      },
+    });
+    // 播放结束
+    this.dp.on("ended",  () => {
+      this.$emit("ended");
+    });
+  },
+
+  methods: {
+    plays(val) {
+      if (val === "pause") this.dp.play();
+      else this.dp.pause();
+    },
   },
 };
 </script>
 
 <style lang="less" scoped>
+/deep/ .dplayer-mobile-play{
+  display: none !important;
+}
 .custom-warp-div {
-  width: 100%;
-
-  margin: 0 auto;
   position: relative;
-
-  // pc
-  @media screen and (min-width: 801px) {
-    .custom-video-warp {
-      width: 100%;
-      position: relative;
-      z-index: 2;
-    }
-    .video-div {
-      background: pink;
-      position: absolute;
-      left: 1.5%;
-      right: 2%;
-      top: 22%;
-      bottom: 3%;
-      border-radius: 23% 22% 16% 16%;
-
-      overflow: hidden;
-    }
-  }
-
-  // 横屏
-  @media screen and (max-width: 800px) and (min-width: 500px) {
-    .custom-video-warp {
-      width: 100%;
-      position: relative;
-      z-index: 2;
-    }
-    .video-div {
-      background: pink;
-      position: absolute;
-      left: 1.5%;
-      right: 1.5%;
-      top: 18%;
-      bottom: 11%;
-      border-radius: 23% 33% 22% 21%;
-
-      overflow: hidden;
-    }
-  }
-
-  // 竖屏
-  @media screen and (max-width: 499px) and (min-width: 200px) {
-    .custom-video-warp {
-      width: 100%;
-      position: relative;
-      //   top: 40%;
-      margin-top: -71%;
-      z-index: 2;
-    }
-    .video-div {
-    //   background: pink;
-      position: absolute;
-      left: 1.5%;
-      right: 1.5%;
-      top: 11%;
-      bottom: 52%;
-      border-radius: 31% 26% 18% 18%;
-      z-index: 1;
-
-      overflow: hidden;
-    }
-  }
-
-  .video {
+  // 边框图片
+  .custom-video-warp {
     width: 100%;
-    border: none;
-    // object-fit: fill;
+    height: 100%;
+    vertical-align: top;
+    position: relative;
+    z-index: 2;
+  }
+
+  .video-div {
+    overflow: hidden;
+    background: pink;
+    position: absolute;
+    top: 19%;
+    left: 3%;
+    right: 2%;
+    bottom: 2%;
+    border-radius: 25% 24% 20% 18%;
   }
 }
 </style>
