@@ -9,8 +9,7 @@
           <img class="icon" :src="item.iconImg" alt="" srcset="" />
           <img class="title" :src="item.titleImg" alt="" srcset="" />
         </div> -->
-<top-header-right />
-
+        <top-header-right />
       </div>
     </div>
 
@@ -20,7 +19,7 @@
           class="fl top-content-item"
           v-for="(item, index) in contentTop"
           :key="index"
-           @click="toOtherPage(item.url)"
+          @click="toOtherPage(item.url)"
         >
           <img class="icon" :src="item.iconImg" alt="" srcset="" />
           <img class="title" :src="item.titleImg" alt="" srcset="" />
@@ -32,7 +31,7 @@
           class="fl bottom-content-item"
           v-for="(item, index) in contentBottom"
           :key="index"
-           @click="toOtherPage(item.path)"
+          @click="toOtherPage(item.path)"
         >
           <img class="icon" :src="item.iconImg" alt="" srcset="" />
           <img class="title" :src="item.titleImg" alt="" srcset="" />
@@ -48,7 +47,7 @@ import TopHeaderRight from "@/components/TopHeaderRight";
 export default {
   name: "Home",
   components: {
-    TopHeaderRight
+    TopHeaderRight,
   },
   data() {
     return {
@@ -74,17 +73,17 @@ export default {
         {
           iconImg: require("@/assets/img/index/1.png"),
           titleImg: require("@/assets/img/index/animationTitle.png"),
-          url: ''
+          url: "/child-list",
         },
         {
           iconImg: require("@/assets/img/index/3.png"),
           titleImg: require("@/assets/img/index/learningGarden.png"),
-          url: '/child-list'
+          url: "/child-list", /// *-------------------------
         },
         {
           iconImg: require("@/assets/img/index/5.png"),
           titleImg: require("@/assets/img/index/videoTitle.png"),
-          url: ''
+          url: "/child-list",
         },
       ],
 
@@ -92,33 +91,38 @@ export default {
         {
           iconImg: require("@/assets/img/index/2.png"),
           titleImg: require("@/assets/img/index/childToys.png"),
-          url: ''
+          url: "/child-list",
         },
         {
           iconImg: require("@/assets/img/index/4.png"),
           titleImg: require("@/assets/img/index/scienceEducation.png"),
-          url: ''
+          url: "/child-list",
         },
       ],
     };
   },
   methods: {
     toOtherPage(path) {
-      if(!path) {
+      if (!path) {
+        this.$message({
+          showClose: true,
+          message: "该功能暂未开放",
+          type: "error",
+        });
         return false;
       }
-      this.$router.push({path})
+      this.$router.push({ path });
     },
     // 顶部商城
     codingTips() {
       this.$message.closeAll();
-       this.$message({
-         showClose: true,
-          message: '该功能暂未开放',
-          type: 'error'
+      this.$message({
+        showClose: true,
+        message: "该功能暂未开放",
+        type: "error",
       });
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -127,19 +131,19 @@ export default {
   width: 100%;
   height: 100vh;
   background: url("~@/assets/img/index/bg.png") no-repeat;
-  
+
   .top {
     padding: 20px 50px 0 50px;
     .left {
       flex: 6;
-      
+
       img {
         width: 300px;
       }
     }
     .right {
       flex: 1;
-  
+
       // .right-item {
       //   text-align: center;
       //   margin-left: 30px;
@@ -167,7 +171,7 @@ export default {
         text-align: center;
         flex-direction: column;
         &:nth-of-type(3) {
-          .title{
+          .title {
             width: 23%;
             // height: 50px;
           }

@@ -1,5 +1,6 @@
 <template>
   <div class="custom-warp-div">
+    <div class="title">认识图形</div>
     <!-- 边框图片 -->
     <img
       class="custom-video-warp"
@@ -22,25 +23,24 @@ export default {
     },
     url: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   data() {
     return {
       status: "",
       dp: null,
-      urlData: 'https://www.w3school.com.cn/i/movie.ogg'
+      urlData: "https://www.w3school.com.cn/i/movie.ogg",
     };
   },
   watch: {
     toogleStatus(val) {
-      if(this.url == '') {
-        alert('视屏加载错误')
+      if (this.url == "") {
+        alert("视屏加载错误");
         return false;
       }
-      this.plays(val)
-    }
-    
+      this.plays(val);
+    },
   },
   created() {
     let { url } = this.$route.query.url;
@@ -53,7 +53,7 @@ export default {
       },
     });
     // 播放结束
-    this.dp.on("ended",  () => {
+    this.dp.on("ended", () => {
       this.$emit("ended");
     });
   },
@@ -68,11 +68,38 @@ export default {
 </script>
 
 <style lang="less" scoped>
-/deep/ .dplayer-mobile-play{
+/deep/ .dplayer-mobile-play {
   display: none !important;
 }
 .custom-warp-div {
   position: relative;
+  .title {
+    position: absolute;
+    z-index: 5;
+
+    -webkit-text-fill-color: rgb(242, 65, 125); /*文字的填充色*/
+
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+  }
+
+  @media screen and (max-width: 800px) {
+    .title {
+      font-size: 35px;
+      -webkit-text-stroke: 1px #fff;
+      top: 5%;
+    }
+  }
+
+  @media screen and (min-width: 801px) {
+    .title {
+      font-size: 45px;
+      -webkit-text-stroke: 2px #fff;
+      top: 7%;
+    }
+  }
+
   // 边框图片
   .custom-video-warp {
     width: 100%;

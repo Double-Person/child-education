@@ -19,7 +19,19 @@ const routes = [
     path: '/video-play',
     name: 'VideoPlay',
     component: () => import('../components/VideoPlay.vue')
+  },
+  {  // 公司介绍
+    path: '/introduce',
+    name: 'Introduce',
+    component: () => import('../components/introduce/index.vue')
+  },
+  {  // 分享
+    path: '/share',
+    name: 'Share',
+    component: () => import('../components/share.vue')
   }
+  
+  
 ]
 
 const router = new VueRouter({

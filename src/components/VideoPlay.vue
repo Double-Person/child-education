@@ -1,13 +1,20 @@
 <template>
   <div class="bg-img-warp video-play">
     <!-- 播放暂停按钮 -->
-    <img class="btn-img play-btn" :src="toogleStatus == 'play' ? imgBtn.pause :imgBtn.play" alt="" srcset="" @click="toogleBtn"/>
+    <img
+      class="btn-img play-btn"
+      :src="toogleStatus == 'play' ? imgBtn.pause : imgBtn.play"
+      alt=""
+      srcset=""
+      @click="toogleBtn"
+    />
     <!-- 视屏 -->
     <div class="custom-warp">
-      <warp-video 
-      url="https://www.w3school.com.cn/i/movie.ogg"
-      :toogleStatus = "toogleStatus"
-       @ended="ended" />
+      <warp-video
+        url="https://www.w3school.com.cn/i/movie.ogg"
+        :toogleStatus="toogleStatus"
+        @ended="ended"
+      />
     </div>
     <!-- 上一个视屏 -->
     <img
@@ -39,7 +46,7 @@ export default {
         play: require("@/assets/img/play/play.png"),
         pause: require("@/assets/img/play/suspended.png"),
       },
-      toogleStatus: 'play'
+      toogleStatus: "play",
     };
   },
   created() {
@@ -48,16 +55,17 @@ export default {
 
   methods: {
     toogleBtn() {
-     
-      this.toogleStatus = this.toogleStatus == 'pause' ? 'play' : 'pause'
+      this.toogleStatus = this.toogleStatus == "pause" ? "play" : "pause";
     },
     ended() {
-      console.log('--播放结束--')
-      this.toogleStatus = 'play'
-      this.$forceUpdate()
+      console.log("--播放结束--");
+      this.toogleStatus = "play";
+      // this.$forceUpdate();
+      setTimeout(() => {
+        this.$router.push({ path: '/share' })
+      }, 500)
     },
-
-  }
+  },
 };
 </script>
 
