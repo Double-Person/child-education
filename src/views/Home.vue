@@ -5,38 +5,13 @@
         <img src="~@/assets/img/index/logo.png" alt="" srcset="" />
       </div>
       <div class="jc-between right">
-        <!-- <div class="right-item" v-for="(item, index) in topList" :key="index" @click="codingTips">
-          <img class="icon" :src="item.iconImg" alt="" srcset="" />
-          <img class="title" :src="item.titleImg" alt="" srcset="" />
-        </div> -->
         <top-header-right />
       </div>
     </div>
 
     <div class="content">
-      <div class="jc-center top-content">
-        <div
-          class="fl top-content-item"
-          v-for="(item, index) in contentTop"
-          :key="index"
-          @click="toOtherPage(item.url)"
-        >
-          <img class="icon" :src="item.iconImg" alt="" srcset="" />
-          <img class="title" :src="item.titleImg" alt="" srcset="" />
-        </div>
-      </div>
-
-      <div class="jc-center bottom-content">
-        <div
-          class="fl bottom-content-item"
-          v-for="(item, index) in contentBottom"
-          :key="index"
-          @click="toOtherPage(item.path)"
-        >
-          <img class="icon" :src="item.iconImg" alt="" srcset="" />
-          <img class="title" :src="item.titleImg" alt="" srcset="" />
-        </div>
-      </div>
+      <carousel />
+     
     </div>
   </div>
 </template>
@@ -44,30 +19,16 @@
 <script>
 // @ is an alias to /src
 import TopHeaderRight from "@/components/TopHeaderRight";
+import carousel from "@/components/carousel/index.vue"
 export default {
   name: "Home",
   components: {
     TopHeaderRight,
+    carousel
   },
   data() {
     return {
-      // topList: [
-      //   {
-      //     titleImg: require("@/assets/img/index/shopTitle.png"),
-      //     iconImg: require("@/assets/img/index/shop.png"),
-      //     url: ''
-      //   },
-      //   {
-      //     titleImg: require("@/assets/img/index/giftBoxText.png"),
-      //     iconImg: require("@/assets/img/index/giftBox.png"),
-      //     url: ''
-      //   },
-      //   {
-      //     titleImg: require("@/assets/img/index/layerText.png"),
-      //     iconImg: require("@/assets/img/index/layer.png"),
-      //     url: ''
-      //   },
-      // ],
+      
 
       contentTop: [
         {
@@ -127,6 +88,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
+
 .home {
   width: 100%;
   height: 100vh;
@@ -164,36 +126,7 @@ export default {
   }
 
   .content {
-    .top-content {
-      margin-top: 80px;
-      .top-content-item {
-        flex: 1;
-        text-align: center;
-        flex-direction: column;
-        &:nth-of-type(3) {
-          .title {
-            width: 23%;
-            // height: 50px;
-          }
-        }
-        img {
-          width: 300px;
-          margin: 0 auto;
-        }
-      }
-    }
-
-    .bottom-content {
-      .bottom-content-item {
-        width: 35%;
-        text-align: center;
-        flex-direction: column;
-        img {
-          width: 300px;
-          margin: 0 auto;
-        }
-      }
-    }
+   
   }
 }
 </style>

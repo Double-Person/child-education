@@ -1,9 +1,10 @@
 import Vue from 'vue'
 
-import { message } from 'element-ui';
+import { message, Carousel } from 'element-ui';
 
 
-// Vue.use(message)
+// Vue.use(message)  Carousel 
+Vue.use(Carousel )
 
 
 Vue.prototype.$message = message;
