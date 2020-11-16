@@ -2,9 +2,10 @@
   <div class="video-warp" @click="toVideoDetail()">
     <video :src="url"></video>
     <div class="content">
-      <div class="play">
+      <img :src="pic" alt="" class="pic">
+      <!-- <div class="play">
         <div class="triangle"></div>
-      </div>
+      </div> -->
     </div>
 
     <!-- 底部信息 -->
@@ -22,6 +23,9 @@ export default {
       type: String,
       required: true,
     },
+    pic: {
+      type: String,
+    },
     title: {
       type: String,
     },
@@ -29,8 +33,8 @@ export default {
 
   methods: {
     toVideoDetail(){
-      let url = this.url;
-      this.$router.push({path: '/video-play', query: {url}})
+      let {url, pic, title} = this;
+      this.$router.push({path: '/video-play', query: {url, pic, title}})
     }
   }
 };
@@ -57,27 +61,37 @@ export default {
     right: 0;
     bottom: 0;
     padding-top: 50%;
-    .play {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      background: #ffffff;
-      // margin: 30% auto 0 auto;
-      margin: 0 auto;
-      transform: translateY(-100%);
-      text-align: center;
-      .triangle {
-        width: 0;
-        height: 0;
-        border-width: 0 30px 30px;
-        border-style: solid;
-        border-color: transparent transparent rgb(78, 178, 230);
-        margin-left: 40px;
-        padding-top: 50px;
-        transform: rotate(90deg);
-        // border-radius: 30px;
-      }
+    .pic {
+      position: absolute;
+      height: 88%;
+      object-fit: cover;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
     }
+
+
+    // .play {
+    //   width: 80px;
+    //   height: 80px;
+    //   border-radius: 50%;
+    //   background: #ffffff;
+    //   // margin: 30% auto 0 auto;
+    //   margin: 0 auto;
+    //   transform: translateY(-100%);
+    //   text-align: center;
+    //   .triangle {
+    //     width: 0;
+    //     height: 0;
+    //     border-width: 0 30px 30px;
+    //     border-style: solid;
+    //     border-color: transparent transparent rgb(78, 178, 230);
+    //     margin-left: 40px;
+    //     padding-top: 50px;
+    //     transform: rotate(90deg);
+    //     // border-radius: 30px;
+    //   }
+    // }
   }
 
   .footer {

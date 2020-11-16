@@ -34,13 +34,12 @@
 
       <div class="jc-between fl-warp video-list">
         <div class="video-item" v-for="(item, index) in videoList" :key="index">
-          <video-play-list :url="item.url" :title="activeName" />
+          <video-play-list :url="item.url" :pic="item.pic" :title="activeName" />
         </div>
         <img
           class="img-footer"
           src="~@/assets/img/childList/footerMask.png"
           alt=""
-          srcset=""
         />
       </div>
     </div>
@@ -73,20 +72,12 @@ export default {
       ],
 
       videoList: [
-        { url: "https://www.w3school.com.cn/i/movie.ogg", id: 0 },
-        { url: "https://www.w3school.com.cn/i/movie.ogg", id: 1 },
-        { url: "https://www.w3school.com.cn/i/movie.ogg", id: 2 },
-        { url: "https://www.w3school.com.cn/i/movie.ogg", id: 3 },
-        { url: "https://www.w3school.com.cn/i/movie.ogg", id: 4 },
-        { url: "https://www.w3school.com.cn/i/movie.ogg", id: 5 },
-        { url: "https://www.w3school.com.cn/i/movie.ogg", id: 6 },
-        { url: "https://www.w3school.com.cn/i/movie.ogg", id: 7 },
-        { url: "https://www.w3school.com.cn/i/movie.ogg", id: 8 },
-        { url: "https://www.w3school.com.cn/i/movie.ogg", id: 8 },
-        { url: "https://www.w3school.com.cn/i/movie.ogg", id: 8 },
-        { url: "https://www.w3school.com.cn/i/movie.ogg", id: 8 },
-        { url: "https://www.w3school.com.cn/i/movie.ogg", id: 8 },
-        { url: "https://www.w3school.com.cn/i/movie.ogg", id: 8 },
+        { id: 0, pic: require("@/assets/img/childList/111.png"), url: "https://www.w3school.com.cn/i/movie.ogg" },
+        { id: 1, pic: require("@/assets/img/childList/222.png"), url: "https://www.w3school.com.cn/i/movie.ogg" },
+        { id: 2, pic: require("@/assets/img/childList/333.png"), url: "https://www.w3school.com.cn/i/movie.ogg" },
+        { id: 3, pic: require("@/assets/img/childList/444.png"), url: "https://www.w3school.com.cn/i/movie.ogg" },
+        { id: 4, pic: require("@/assets/img/childList/555.png"), url: "https://www.w3school.com.cn/i/movie.ogg" },
+        { id: 5, pic: require("@/assets/img/childList/666.png"), url: "https://www.w3school.com.cn/i/movie.ogg" },
       ],
     };
   },

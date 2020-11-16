@@ -63,9 +63,11 @@ export default {
 
 .warp-header {
   display: flex;
+  margin-bottom: 30px;
 
   .left {
-    flex: 4;
+    // flex: 4;
+    width: 65%;
     text-align: center;
 
     .snail {

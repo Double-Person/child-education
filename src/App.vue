@@ -41,4 +41,7 @@ export default {
 <style lang="less">
 @import '~@/assets/style/reset.css';
 @import '~@/assets/style/common.less';
+#app{
+  overflow: hidden;
+}
 </style>

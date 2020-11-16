@@ -1,6 +1,6 @@
 <template>
   <div class="custom-warp-div">
-    <div class="title">认识图形</div>
+    <div class="title">{{ title }}</div>
     <!-- 边框图片 -->
     <img
       class="custom-video-warp"
@@ -8,7 +8,7 @@
       @click="plays"
     />
     <div class="video-div">
-      <div id="dplayer"></div>
+      <div id="dplayer" ></div>
     </div>
   </div>
 </template>
@@ -25,31 +25,41 @@ export default {
       type: String,
       required: true,
     },
+    pic: {
+      type: String,
+    },
+    title: {
+      type: String,
+    },
   },
   data() {
     return {
       status: "",
       dp: null,
-      urlData: "https://www.w3school.com.cn/i/movie.ogg",
     };
   },
   watch: {
     toogleStatus(val) {
       if (this.url == "") {
-        alert("视屏加载错误");
+        this.$message({
+          showClose: true,
+          message: "视频获取失败请稍后再试",
+          type: "error",
+        });
         return false;
       }
       this.plays(val);
     },
   },
   created() {
-    let { url } = this.$route.query.url;
+    // let { url } = this.$route.query.url;
   },
   mounted() {
     this.dp = new DPlayer({
       container: document.getElementById("dplayer"),
       video: {
         url: this.url,
+        // pic: this.pic
       },
     });
     // 播放结束

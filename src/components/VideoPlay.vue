@@ -11,7 +11,9 @@
     <!-- 视屏 -->
     <div class="custom-warp">
       <warp-video
-        url="https://www.w3school.com.cn/i/movie.ogg"
+        :url="url"
+        :pic="pic"
+        :title="title"
         :toogleStatus="toogleStatus"
         @ended="ended"
       />
@@ -47,10 +49,16 @@ export default {
         pause: require("@/assets/img/play/suspended.png"),
       },
       toogleStatus: "play",
+      url: "",
+      pic: "",
+      title: "",
     };
   },
   created() {
-    let { url } = this.$route.query.url;
+    let { url, pic, title } = this.$route.query;
+     this.url = url; 
+     this.pic = pic;
+     this.title = title;
   },
 
   methods: {
@@ -62,8 +70,8 @@ export default {
       this.toogleStatus = "play";
       // this.$forceUpdate();
       setTimeout(() => {
-        this.$router.push({ path: '/share' })
-      }, 500)
+        this.$router.push({ path: "/share" });
+      }, 500);
     },
   },
 };

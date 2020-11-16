@@ -71,8 +71,8 @@ export default {
     flex-direction: column;
     justify-content: center;
     .icon-img {
-      width: 60px;
-      height: 60px;
+      width: 100px;
+      height: 100px;
     }
     .title-img {
       width: 40px;

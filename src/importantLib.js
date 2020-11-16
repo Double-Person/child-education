@@ -1,10 +1,9 @@
 import Vue from 'vue'
+import 'element-ui/lib/theme-chalk/index.css'
+import { message, Carousel, CarouselItem } from 'element-ui';
 
-import { message, Carousel } from 'element-ui';
 
-
-// Vue.use(message)  Carousel 
-Vue.use(Carousel )
+Vue.use(Carousel).use(CarouselItem)
 
 
 Vue.prototype.$message = message;
