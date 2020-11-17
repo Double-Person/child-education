@@ -16,7 +16,7 @@ export default {};
 <style lang="less" scoped>
 .introduce {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background: url("~@/assets/img/introduce/bg.png") no-repeat;
 
   .logo {
@@ -26,7 +26,7 @@ export default {};
     top: 3%;
   }
   .content {
-    width: 75%;
+    width: 70%;
     margin: 0 auto;
     position: relative;
     padding-top: 1%;
@@ -40,7 +40,7 @@ export default {};
 
     .warp {
       width: 100%;
-      height: 90vh;
+      height: 90%;
     }
     .content-text {
       position: absolute;

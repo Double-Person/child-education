@@ -25,59 +25,60 @@ export default {
     TopHeaderRight,
     Carousel,
   },
-
 };
 </script>
 
 <style lang="less" scoped>
-.home {
-  width: 100%;
-  height: 100vh;
-  background: url("~@/assets/img/index/bg.png") no-repeat;
+@media screen and (min-width: 800px) {
+  .home {
+    width: 100%;
+    height: 100vh;
+    background: url("~@/assets/img/index/bg.png") no-repeat;
+    overflow-y: hidden;
+    .top {
+      padding: 20px 50px 0 50px;
+      .left {
+        width: 65%;
 
-  .top {
-    padding: 20px 50px 0 50px;
-    .left {
-     width: 65%;
-
-      img {
-        width: 300px;
+        img {
+          width: 300px;
+        }
+      }
+      .right {
+        flex: 1;
       }
     }
-    .right {
-      flex: 1;
-
-      // .right-item {
-      //   text-align: center;
-      //   margin-left: 30px;
-      //   img {
-      //     display: block;
-      //     margin: 0 auto;
-      //   }
-      //   .icon {
-      //     width: 100px;
-      //     height: 100px;
-      //   }
-      //   .title {
-      //     width: 50px;
-      //     margin-top: 20px;
-      //   }
-      // }
-    }
-  }
-
-  @media screen and (min-width: 800px) {
     .content {
       height: 78%;
       // background: pink;
-      margin: 20px auto 60px auto;
+      margin: 0px auto -20px auto;
     }
   }
-  @media screen and (max-width: 800px) {
+}
+@media screen and (max-width: 800px) {
+  .home {
+    width: 100%;
+    height: 100%;
+    background: url("~@/assets/img/index/bg.png") no-repeat;
+    overflow-y: hidden;
+    .top {
+      padding: 20px 50px 0 50px;
+      height: 150px;
+      .left {
+        width: 65%;
+
+        img {
+          width: 300px;
+        }
+      }
+      .right {
+        flex: 1;
+      }
+    }
     .content {
-      height: 750px;
-      // background: skyblue;
-      margin: 100px auto 60px auto;
+      height: 700px;
+      // background: pink;
+      margin: 0px auto 0px auto;
     }
   }
 }

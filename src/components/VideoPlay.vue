@@ -56,9 +56,9 @@ export default {
   },
   created() {
     let { url, pic, title } = this.$route.query;
-     this.url = url; 
-     this.pic = pic;
-     this.title = title;
+    this.url = url || "https://www.w3school.com.cn/i/movie.ogg";
+    this.pic = pic || "";
+    this.title = title;
   },
 
   methods: {
@@ -80,7 +80,7 @@ export default {
 <style lang="less" scoped>
 .video-play {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background: url("~@/assets/img/play/beijing.png") no-repeat;
   // line-height: 100vh;
   position: relative;
@@ -117,6 +117,7 @@ export default {
       width: 65%;
       margin: 0 auto;
     }
+    
   }
 }
 </style>

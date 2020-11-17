@@ -1,5 +1,6 @@
 <template>
-  <div class="video-warp" @click="toVideoDetail()">
+  <div style="position: restive;">
+    <div class="video-warp" @click="toVideoDetail()">
     <video :src="url"></video>
     <div class="content">
       <img :src="pic" alt="" class="pic">
@@ -13,6 +14,7 @@
       <img src="~@/assets/img/childList/videoFooer.png" alt="" />
       <div class="name">{{ title }}</div>
     </div>
+  </div>
   </div>
 </template>
 
@@ -34,7 +36,7 @@ export default {
   methods: {
     toVideoDetail(){
       let {url, pic, title} = this;
-      this.$router.push({path: '/video-play', query: {url, pic, title}})
+      this.$router.push({path: '/video-play', query: {title}})  // url, pic, 
     }
   }
 };
@@ -42,6 +44,7 @@ export default {
 
 <style lang="less" scoped>
 .video-warp {
+  
   position: relative;
   border: 2px solid #fff;
   border-radius: 25px;

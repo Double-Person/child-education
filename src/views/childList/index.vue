@@ -34,7 +34,11 @@
 
       <div class="jc-between fl-warp video-list">
         <div class="video-item" v-for="(item, index) in videoList" :key="index">
-          <video-play-list :url="item.url" :pic="item.pic" :title="activeName" />
+          <video-play-list
+            :url="item.url"
+            :pic="item.pic"
+            :title="activeName"
+          />
         </div>
         <img
           class="img-footer"
@@ -72,12 +76,36 @@ export default {
       ],
 
       videoList: [
-        { id: 0, pic: require("@/assets/img/childList/111.png"), url: "https://www.w3school.com.cn/i/movie.ogg" },
-        { id: 1, pic: require("@/assets/img/childList/222.png"), url: "https://www.w3school.com.cn/i/movie.ogg" },
-        { id: 2, pic: require("@/assets/img/childList/333.png"), url: "https://www.w3school.com.cn/i/movie.ogg" },
-        { id: 3, pic: require("@/assets/img/childList/444.png"), url: "https://www.w3school.com.cn/i/movie.ogg" },
-        { id: 4, pic: require("@/assets/img/childList/555.png"), url: "https://www.w3school.com.cn/i/movie.ogg" },
-        { id: 5, pic: require("@/assets/img/childList/666.png"), url: "https://www.w3school.com.cn/i/movie.ogg" },
+        {
+          id: 0,
+          pic: require("@/assets/img/childList/111.png"),
+          url: "https://www.w3school.com.cn/i/movie.ogg",
+        },
+        {
+          id: 1,
+          pic: require("@/assets/img/childList/222.png"),
+          url: "https://www.w3school.com.cn/i/movie.ogg",
+        },
+        {
+          id: 2,
+          pic: require("@/assets/img/childList/333.png"),
+          url: "https://www.w3school.com.cn/i/movie.ogg",
+        },
+        {
+          id: 3,
+          pic: require("@/assets/img/childList/444.png"),
+          url: "https://www.w3school.com.cn/i/movie.ogg",
+        },
+        {
+          id: 4,
+          pic: require("@/assets/img/childList/555.png"),
+          url: "https://www.w3school.com.cn/i/movie.ogg",
+        },
+        {
+          id: 5,
+          pic: require("@/assets/img/childList/666.png"),
+          url: "https://www.w3school.com.cn/i/movie.ogg",
+        },
       ],
     };
   },
@@ -167,14 +195,15 @@ export default {
     .video-list {
       overflow-y: auto;
 
-      height: calc(100% - 130px);
+      // height: calc(100% - 130px);
       &:after {
         width: 30%;
         content: "";
       }
       .video-item {
         width: 30%;
-        margin-bottom: 5.3%;
+        height: 260px;
+        margin-bottom: 5%;
       }
     }
 

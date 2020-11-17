@@ -18,7 +18,7 @@ export default {};
 <style lang="less" scoped>
 .share {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background: url("~@/assets/img/share/bg.png") no-repeat;
 
   .logo {
@@ -35,7 +35,7 @@ export default {};
     // padding-top: 1%;
     .warp {
       width: 100%;
-      height: 90vh;
+      height: 90%;
     }
 
     .content-text {

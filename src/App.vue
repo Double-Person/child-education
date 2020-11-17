@@ -43,5 +43,7 @@ export default {
 @import '~@/assets/style/common.less';
 #app{
   overflow: hidden;
+  height: 100vh;
+  width: 100%;
 }
 </style>
